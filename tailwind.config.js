@@ -7,6 +7,11 @@ const config = {
 	theme: {
 		fontFamily: {
 			sans: ['Inter', ...defaultConfig.theme.fontFamily.sans]
+		},
+		extend: {
+			colors: {
+				greyscaleBgDark: '#1B1B1B'
+			}
 		}
 	},
 	experimental: { optimizeUniversalDefaults: true },
