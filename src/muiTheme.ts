@@ -26,7 +26,7 @@ export default createTheme({
 				 *   - label.MuiInputLabel-root
 				 *   - div.MuiOutlinedInput-root
 				 *     - input.MuiOutlinedInput-input
-				 *     - fieldset.MuiOutlinedInput-notchedOutline
+				 *     - fieldset.MuiOutlinedInput-notchedOutline  // mui use fieldset as outlined TextField's border
 				 */
 				root: {
 					width: '335px',
