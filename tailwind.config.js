@@ -6,7 +6,7 @@ const config = {
 	content: ['index.html', 'src/**/*.tsx'],
 	theme: {
 		fontFamily: {
-			sans: ['Inter', ...defaultConfig.theme.fontFamily.sans]
+			sans: ['Ubuntu', ...defaultConfig.theme.fontFamily.sans]
 		},
 		extend: {
 			colors: {
