@@ -1,2 +1,2 @@
-// eslint-disable-next-line no-restricted-exports
-export { default } from './CheckList'
+export { default as CheckListPopover } from './CheckListPopover'
+export { default as CheckList } from './CheckList'
