@@ -1,7 +1,9 @@
-import type { ReactElement } from 'react'
+import type { ReactElement, ReactNode } from 'react'
 import { useCallback, useState } from 'react'
+import type { DateView, DateViewRendererProps } from '@mui/x-date-pickers'
 import { DatePicker } from '@mui/x-date-pickers'
 import type { Dayjs } from 'dayjs'
+import AhaYearCalendar from './AhaYearCalendar'
 import {
 	slotPropsActionBarSx,
 	slotPropsInputAdornmentSx,
@@ -11,6 +13,10 @@ import {
 import type { DatePickerProps } from '@mui/x-date-pickers/DatePicker/DatePicker.types'
 
 const dayOfWeekFormatter = (d: string): string => d
+
+const renderYearViewCalendar = (
+	args: DateViewRendererProps<Dayjs, DateView>
+): ReactNode => <AhaYearCalendar {...args} />
 
 /**
  * Aha Style Date Picker
@@ -39,6 +45,7 @@ const dayOfWeekFormatter = (d: string): string => d
  *
  */
 export default function AhaDatePicker({
+	viewRenderers,
 	slotProps,
 	...props
 }: DatePickerProps<Dayjs> & React.RefAttributes<HTMLDivElement>): ReactElement {
@@ -68,6 +75,12 @@ export default function AhaDatePicker({
 			showDaysOutsideCurrentMonth
 			dayOfWeekFormatter={dayOfWeekFormatter}
 			closeOnSelect={false}
+			//
+			// customized year calendar
+			viewRenderers={{
+				year: renderYearViewCalendar,
+				...viewRenderers
+			}}
 			//
 			// customize open behavior by focusing on TextField
 			open={isOpen}
