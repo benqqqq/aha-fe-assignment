@@ -28,11 +28,15 @@ export const yearViewSx = {
 	},
 	'.MuiPickersYear-yearButton': {
 		borderRadius: '2px',
-		height: '32px',
-		width: '65px'
-	},
-	'.MuiPickersYear-yearButton:hover': {
-		backgroundColor: '#FFFFFF',
-		color: '#1B1B1B'
+		height: '26px',
+		width: '65px',
+		'&.Mui-selected': {
+			backgroundColor: '#00A3FF',
+			color: '#FFFFFF'
+		},
+		':hover': {
+			backgroundColor: '#FFFFFF',
+			color: '#1B1B1B'
+		}
 	}
 }
