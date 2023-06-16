@@ -17,17 +17,15 @@ import type { ICheckListItem } from './types'
  *
  * const items = [
  *   {
+ *   	 key: 1,
  *     checked: true,
  *     label: 'Item 1'
  *   },
  *   {
+ *     key: 2,
  *     checked: false,
  *     label: 'Item 2'
  *   },
- *   {
- *     checked: true,
- *     label: 'Item 3'
- *   }
  * ];
  *
  * function App() {
