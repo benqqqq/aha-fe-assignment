@@ -30,3 +30,10 @@ pnpm run dev
 ## Deployment
 
 TBD
+
+## Known Issues
+
+- Comparing with Figma Design
+  - Color
+- Responsive
+- Accessibility
