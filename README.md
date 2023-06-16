@@ -9,6 +9,11 @@ this is the repository that implements [aha front-end assignment exam 1](https:/
 
 ## Demo
 
+
+https://github.com/benqqqq/aha-fe-assignment/assets/11547758/54c1ab4c-d9fc-447d-bab1-0e7654be5cc4
+
+
+
 ## Implementation Steps
 
 1. Initialize Project - [[PR - Chores/initial project]](https://github.com/benqqqq/aha-fe-assignment/pull/1)
