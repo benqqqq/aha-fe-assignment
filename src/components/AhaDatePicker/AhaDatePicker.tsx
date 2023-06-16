@@ -1,5 +1,6 @@
 import type { ReactElement } from 'react'
 import { useCallback, useState } from 'react'
+import type { DateValidationError } from '@mui/x-date-pickers'
 import { DatePicker } from '@mui/x-date-pickers'
 import type { Dayjs } from 'dayjs'
 import {
@@ -9,6 +10,8 @@ import {
 	slotPropsTextFieldSx
 } from './stylesDatePicker'
 import type { DatePickerProps } from '@mui/x-date-pickers/DatePicker/DatePicker.types'
+import AhaPickersDay from './AhaPickersDay'
+import type { PickerChangeHandlerContext } from '@mui/x-date-pickers/internals/hooks/usePicker/usePickerValue.types'
 
 const dayOfWeekFormatter = (d: string): string => d
 
@@ -39,6 +42,7 @@ const dayOfWeekFormatter = (d: string): string => d
  *
  */
 export default function AhaDatePicker({
+	onChange,
 	slotProps,
 	...props
 }: DatePickerProps<Dayjs> & React.RefAttributes<HTMLDivElement>): ReactElement {
@@ -53,6 +57,18 @@ export default function AhaDatePicker({
 	} = slotProps ?? {}
 
 	const [isOpen, setIsOpen] = useState(false)
+	const [date, setDate] = useState<Dayjs | null>()
+
+	const handleOnChange = useCallback(
+		(
+			value: Dayjs | null,
+			context: PickerChangeHandlerContext<DateValidationError>
+		): void => {
+			setDate(value)
+			onChange?.(value, context)
+		},
+		[onChange]
+	)
 
 	const handlePopperClose = useCallback(() => {
 		setIsOpen(false)
@@ -73,8 +89,18 @@ export default function AhaDatePicker({
 			open={isOpen}
 			onClose={handlePopperClose}
 			//
+			// to customize the color of previous selected day, we need to use onChange callback to record the value,
+			// then pass it into AhaPickersDay component
+			onChange={handleOnChange}
+			slots={{
+				day: AhaPickersDay
+			}}
+			//
 			// customize children
 			slotProps={{
+				day: {
+					value: date?.valueOf()
+				},
 				popper: {
 					sx: slotPropsPopperSx,
 					...slotPropsPopper
