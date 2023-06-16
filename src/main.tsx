@@ -5,6 +5,8 @@ import { registerSW } from 'virtual:pwa-register'
 import './index.css'
 import muiTheme from './muiTheme'
 import { ThemeProvider as MuiThemeProvider } from '@mui/material'
+import { LocalizationProvider } from '@mui/x-date-pickers'
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
 
 registerSW()
 
@@ -14,7 +16,9 @@ if (container) {
 	root.render(
 		<StrictMode>
 			<MuiThemeProvider theme={muiTheme}>
-				<App />
+				<LocalizationProvider dateAdapter={AdapterDayjs}>
+					<App />
+				</LocalizationProvider>
 			</MuiThemeProvider>
 		</StrictMode>
 	)
