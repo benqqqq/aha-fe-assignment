@@ -32,6 +32,7 @@ export default function PasswordTextField(): ReactElement {
 				<TextField
 					label='Password'
 					type='password'
+					placeholder='Password'
 					value={password}
 					onChange={handlePasswordChange}
 					{...listenFocusProps}

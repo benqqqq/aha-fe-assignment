@@ -39,7 +39,10 @@ export default createTheme({
 							boxShadow: 'none' // HACK: overwrite the box shadow added by tailwindcss
 						},
 						input: {
-							padding: '20px 12px'
+							padding: '20px 12px',
+							'&::placeholder': {
+								color: '#5D5D5D'
+							}
 						},
 						fieldset: {
 							border: '3px solid #929292',
