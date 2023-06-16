@@ -30,6 +30,8 @@
  * │   └── div(data-testid="sentinelEnd")
  */
 
+export const previousSelectedCssClass = 'App-Previous-Selected'
+
 export const slotPropsPopperSx = {
 	'.MuiPaper-root': {
 		backgroundImage: 'none', // MuiPaper has default gradient, so we need to override it
@@ -83,9 +85,25 @@ export const slotPropsPopperSx = {
 						backgroundColor: '#FFFFFF',
 						color: '#1B1B1B'
 					},
+					':focus': {
+						backgroundColor: '#1B1B1B'
+					},
 
 					'&.MuiPickersDay-today': {
-						borderColor: '#00A3FF'
+						border: 'none'
+					},
+
+					'&.Mui-selected': {
+						backgroundColor: '#00A3FF',
+						color: '#FFFFFF'
+					},
+
+					'&.MuiPickersDay-dayOutsideMonth': {
+						color: '#5D5D5D'
+					},
+
+					[`&.${previousSelectedCssClass}`]: {
+						border: '1px solid #00A3FF'
 					}
 				}
 			}
