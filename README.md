@@ -44,6 +44,6 @@ pnpm run build
 - The color is a slightly different from Figma design (although set the same hex code)
 - Responsive doesn't handle
 - Accessibility doesn't handle
-- es2 testing doesn't handle
+- e2e testing doesn't handle
 - Better to have each component's design document
 - Date Picker ux (such as https://github.com/Hacker0x01/react-datepicker/issues/942)
